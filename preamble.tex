@@ -1,0 +1,132 @@
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{fancyhdr}
+\usepackage{blindtext}
+\usepackage[table]{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usepackage{eso-pic}
+\usepackage{titling}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage[toc]{appendix}
+\usepackage{makecell}
+\usepackage[official]{eurosym}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{subcaption}
+
+\definecolor{HHS_GREEN}{RGB}{166,188,10}
+\definecolor{HHS_GRAY}{RGB}{30,48,62}
+\definecolor{HHS_LIGHT}{RGB}{130,148,162}
+
+\usepackage[sfdefault]{ClearSans} %% option 'sfdefault' activates Clear Sans as the default text font
+\usepackage[T1]{fontenc}
+
+% \fontfamily{ptm} %https://www.overleaf.com/learn/latex/Font_typefaces
+% \renewcommand{\rmdefault}{ppl}
+% \renewcommand{\sfdefault}{ppl}
+% \renewcommand{\rmdefault}{ptm}
+% \rmfamily
+% \sffamily
+
+\titleformat{\section}[hang]{\LARGE\normalfont\sffamily\color{HHS_GRAY}}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\Large\normalfont\sffamily\color{HHS_GRAY}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\large\normalfont\sffamily\color{HHS_GRAY}}{\thesubsubsection}{1em}{}
+
+
+\titlecontents{section}[0em]{\vskip6pt\normalsize\sffamily\color{HHS_GRAY}}{\thecontentslabel\enspace}{\hspace{1.05em}}{ \hfill\contentspage}[\vskip 3pt]
+\titlecontents{subsection}[1em]{\vskip6pt\small\sffamily\color{HHS_GRAY}}{\thecontentslabel\enspace}{\hspace{1.05em}}{ \hfill\contentspage}[\vskip 2pt]
+\titlecontents{subsubsection}[2em]{\vskip6pt\footnotesize\sffamily\color{HHS_GRAY}}{\thecontentslabel\enspace}{\hspace{1.05em}}{ \hfill\contentspage}[\vskip 1pt]
+
+
+
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+		\begin{center}\large#1\end{center}
+		\vskip0.5em}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\newcommand{\hhslogox}{25}
+\newcommand{\hhslogoy}{780}
+\newcommand{\graybandheight}{1.5}
+\newcommand{\graybandwidth}{7.5}
+
+\tikzmath{
+	\graybandindented = \graybandwidth - 1;
+}
+
+
+\setlength{\headheight}{0pt} % fixes \headheight warning
+\fancypagestyle{default}{%
+	\newgeometry{top=3cm,bottom=1cm,right=2cm,left=2cm}
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+
+
+	\ClearShipoutPicture
+	\AddToShipoutPicture
+	{
+		\put(-10, 775){\begin{tikzpicture}
+				\draw[fill=HHS_GRAY, line width=0mm, rounded corners=0.25mm] (0,0) -- (\graybandwidth,0) -- (\graybandindented,\graybandheight)-- (0,\graybandheight) -- (0,0);
+			\end{tikzpicture}
+		}
+		\put(500, 775){\begin{tikzpicture}
+				\draw[fill=HHS_GRAY, line width=0mm, rounded corners=0.25mm] (0,0) -- (5,0) -- (7,1.5)-- (-1,1.5) -- (0,0);
+			\end{tikzpicture}
+		}
+		% \put(\hhslogox,\hhslogoy){\includegraphics[scale=0.4]{"graphics/thuas_logo"}}
+		%\put(540,781){\includegraphics[scale=0.075]{"./graphics/cam"}}
+		\put(250,792){\textcolor{HHS_GRAY}{\Large{\fontfamily{ptm}\sffamily\selectfont \textbf{Project aandachtspunten}}}}
+		\put(250,776){\textcolor{HHS_GRAY}{\small{\fontfamily{ptm}\sffamily\selectfont \textbf{Door Mark Schrauwen, februari 2022}}}}
+		% \put(345,805){\textcolor{HHS_GRAY}{\Large{\fontfamily{ptm}\sffamily\selectfont Practicumverslag}}}
+		% \put(230,780){\textcolor{HHS_GRAY}{\Large{\fontfamily{ptm}\sffamily\selectfont \textbf{ELCA1-T1, Elektronica1, Mechatronica}}}}
+		%\put(355,780){\textcolor{HHS_GRAY}{\Large{\fontfamily{ptm}\sffamily\selectfont 16021908 - MeH3}}}
+	}
+}
+
+\setlength{\headheight}{0pt} % fixes \headheight warning
+\fancypagestyle{frontpage}{%
+	\newgeometry{top=2cm,bottom=2cm,right=2cm,left=2cm}
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+
+	%OLD = 346 / 194
+
+	\ClearShipoutPicture
+	\AddToShipoutPicture
+	{
+		\put(349.5,663){\begin{tikzpicture}
+				\fill [HHS_GRAY] (0pt,0pt) rectangle (190.5pt,70pt);
+			\end{tikzpicture}}
+		\put(56.5,663){\begin{tikzpicture}
+				\fill [HHS_GRAY] (0pt,0pt) rectangle (28.5pt,70pt);
+			\end{tikzpicture}}
+		\put(95,650){\includegraphics[scale=0.322]{"graphics/qing_logo"}}
+		\put(400,40){\includegraphics[scale=0.15]{"graphics/hhs"}}
+		\put(50,65){\textcolor{black}{\normalsize{\fontfamily{ptm}\sffamily\selectfont QING Mechatronics BV}}}
+		\put(50,50){\textcolor{black}{\normalsize{\fontfamily{ptm}\sffamily\selectfont Westervoortsedijk 73, 6827 AV, Arnhem}}}
+	}
+}
+
+\setlength{\headheight}{0pt} % fixes \headheight warning
+\fancypagestyle{plain}{%
+	\newgeometry{top=8cm,bottom=2.5cm,right=4cm,left=4cm}
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\hyphenpenalty 10000
+\exhyphenpenalty 10000
